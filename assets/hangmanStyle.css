@@ -1,0 +1,18 @@
+.header {
+	width: 100%;
+	text-align: center;
+	border: 5px black solid;
+}
+
+.headerDivider {
+	width: 100%;
+}
+
+.gameBox {
+	border-top: 0;
+	border: 3px black solid;
+	width: 50%;
+	text-align: center;
+	margin: 0 auto;
+}
+

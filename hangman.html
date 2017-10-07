@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Hangman Game</title>
+
+	  <!-- Added link to the jQuery Library -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+      <!-- My Style CSS File -->
+	<link rel="stylesheet" type="text/css" href="assets/hangmanStyle.css">
+
+</head>
+<body>
+
+<!-- HEADER DIV -->
+<div class="header">
+	<h1>Heavy Equipment</h1>
+	<h1>Hangman!</h1>
+</div>
+
+<!-- <hr class="headerDivider"> -->
+
+<!--**GAME BOX DIV** -->
+
+<div class="gameBox">
+
+
+	<!-- CURRENT WORD DIV -->
+	<div class="currentWord">
+		<h2>Current Word:</h2>
+		<br>
+		<h2 class="word"></h2>
+		<br>
+	</div>
+
+	<!-- GUESSES REMAINING DIV -->
+	<div class="guesses">
+		<h2>Number of Guesses Remaining:</h2>
+		<br>
+		<h2 class="guessesRem"></h2>
+		<br>
+	</div>
+
+	<!-- LETTERS GUESSED DIV -->
+	<div class="lettersGuessed">
+		<h2>Letters Guessed:</h2>
+		<br>
+		<h2 id="letters"></h2>
+	</div>
+</div>
+
+<!-- JavaScript Start -->
+<script type="text/javascript">
+
+// Set Global Variables
+	
+var wordBank = [
+				"bobcat", 
+				"bulldozer", 
+				"grader", 
+				"excavator", 
+				"forklift", 
+				"backhoe", 
+				"crane", 
+				"tractor", 
+				"auger", 
+				"trencher", 
+				"sweeper", 
+				"lift", 
+				"compressor", 
+				"scraper"
+];
+// Sets wins to 0
+var wins;
+
+// Set guesses remaining to 12
+var guessesRemaining = 12;
+
+// Display guesses remaining on html doc
+$(".guessesRem").html(guessesRemaining);
+
+// Pick random word from word bank
+var wordBankLength = wordBank.length;
+var randomWord = wordBank[Math.floor(Math.random() * wordBankLength)];
+
+// Display current word
+$(".word").html(randomWord);
+
+var userGuess;
+
+
+
+
+$(document).ready(function() {
+
+
+	function win () {
+		alert("You Win!")
+	}
+
+	function lost () {
+		alert("Game Over :(")
+	}
+
+	if (guessesRemaining === 0) {
+		lost();
+	}
+
+	document.onkeyup = function(event) {
+
+		guessesRemaining--;
+
+		$(".guessesRem").html(guessesRemaining);
+
+		userGuess = String.fromCharCode(event.keyCode).toLowerCase();
+
+		$("#letters").append(userGuess);
+
+		for (var i = 0; i < wordBank.length; i++) {
+        if (wordBank[i] === userGuess) {
+          userGuess[i].innerHTML = userGuess;
+          guessesRemaining--;
+
+        
+        } 
+      }
+
+
+
+
+	};
+
+});
+
+
+
+
+// 
+
+
+</script>
+
+
+</body>
+</html>
