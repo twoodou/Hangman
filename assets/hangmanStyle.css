@@ -2,10 +2,12 @@
 	width: 100%;
 	text-align: center;
 	border: 5px black solid;
+	color: yellow;
 }
 
 .headerDivider {
 	width: 100%;
+	color: yellow;
 }
 
 .gameBox {
@@ -14,5 +16,10 @@
 	width: 50%;
 	text-align: center;
 	margin: 0 auto;
+	color: yellow;
+}
+
+body {
+	background: url("background-diamond-plate.jpg");
 }
 
